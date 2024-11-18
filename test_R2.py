@@ -23,7 +23,7 @@ def previeni_sospensione():
         time.sleep(30)  # Pausa di 30 secondi
 
 if __name__ == '__main__':
-    print(r'PS C:\Users\Alessandro> ', end='', flush=True)
+    print(r'PS C:\Users\AlessandroFaro> ', end='', flush=True)
     previeni_sospensione()
 "
 }
