@@ -7,23 +7,30 @@ import time
 import ctypes
 import random
 
+# Definisce la struttura POINT
+class POINT(ctypes.Structure):
+    _fields_ = [('x', ctypes.c_long), ('y', ctypes.c_long)]
+
 # Funzione per spostare il mouse da un punto A a un punto B e ritorno
 def muovi_mouse():
-    # Prendi la posizione attuale del mouse
-    pos = ctypes.windll.user32.GetCursorPos
-    x_start, y_start = pos()
+    # Ottieni la posizione attuale del mouse
+    pos = POINT()
+    ctypes.windll.user32.GetCursorPos(ctypes.byref(pos))
+
+    # Salva la posizione iniziale
+    x_start, y_start = pos.x, pos.y
 
     # Calcola una posizione casuale (x2, y2) per spostare il mouse
-    x2 = x_start + random.randint(10, 100)  # movimento casuale a destra
-    y2 = y_start + random.randint(10, 100)  # movimento casuale verso il basso
+    x2 = x_start + random.randint(10, 100)  # Movimento casuale a destra
+    y2 = y_start + random.randint(10, 100)  # Movimento casuale verso il basso
 
-    # Muovi il mouse al punto (x2, y2)
+    # Muove il mouse al punto (x2, y2)
     ctypes.windll.user32.SetCursorPos(x2, y2)
     
     # Aspetta un po' per simulare il movimento
     time.sleep(0.5)  # Pausa per visualizzare il movimento
 
-    # Muovi il mouse di nuovo al punto originale
+    # Muove il mouse di nuovo al punto originale
     ctypes.windll.user32.SetCursorPos(x_start, y_start)
 
 # Funzione per prevenire la sospensione
@@ -33,7 +40,7 @@ def previeni_sospensione():
         time.sleep(60)   # Pausa di 60 secondi (puoi modificarla)
 
 if __name__ == '__main__':
-    print('\033[92malessandro_linux@DESKTOP-BV5VLUA\033[0m:\033[94m~\033[0m$ ', end='', flush=True)
+    print(r'PS C:\Users\Alessandro> ', end='', flush=True)
     previeni_sospensione()
 "
 }
@@ -51,23 +58,30 @@ import time
 import ctypes
 import random
 
+# Definisce la struttura POINT
+class POINT(ctypes.Structure):
+    _fields_ = [('x', ctypes.c_long), ('y', ctypes.c_long)]
+
 # Funzione per spostare il mouse da un punto A a un punto B e ritorno
 def muovi_mouse():
-    # Prendi la posizione attuale del mouse
-    pos = ctypes.windll.user32.GetCursorPos
-    x_start, y_start = pos()
+    # Ottieni la posizione attuale del mouse
+    pos = POINT()
+    ctypes.windll.user32.GetCursorPos(ctypes.byref(pos))
+
+    # Salva la posizione iniziale
+    x_start, y_start = pos.x, pos.y
 
     # Calcola una posizione casuale (x2, y2) per spostare il mouse
-    x2 = x_start + random.randint(10, 100)  # movimento casuale a destra
-    y2 = y_start + random.randint(10, 100)  # movimento casuale verso il basso
+    x2 = x_start + random.randint(10, 100)  # Movimento casuale a destra
+    y2 = y_start + random.randint(10, 100)  # Movimento casuale verso il basso
 
-    # Muovi il mouse al punto (x2, y2)
+    # Muove il mouse al punto (x2, y2)
     ctypes.windll.user32.SetCursorPos(x2, y2)
     
     # Aspetta un po' per simulare il movimento
     time.sleep(0.5)  # Pausa per visualizzare il movimento
 
-    # Muovi il mouse di nuovo al punto originale
+    # Muove il mouse di nuovo al punto originale
     ctypes.windll.user32.SetCursorPos(x_start, y_start)
 
 # Funzione per prevenire la sospensione
